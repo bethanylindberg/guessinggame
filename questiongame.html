@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Question Game</title>
+
+    
+</head>
+
+
+<body>
+    <div>
+        <h1>The Question Game</h1>
+        <p>Press "T" for true and "F" for false</p>
+        <p id="question-text"></p>
+        <p id="score"></p>
+
+      </div>
+    
+
+    <script>
+    questions = [{ "q": "The Earth is mostly water", "a": "True" },{ "q": "Catholicism was illegal in England in the 1500s.", "a": "True" },{ "q": "Chocolate chip cookies have been around longer than Oreos.", "a": "False" },
+    { "q": "Vodka comes from potatoes.", "a": "True" },{ "q": "Tattoo ink comes from various fruit juices.", "a": "False" },{ "q": "Thanksgiving in the US is on November 21 every year.", "a": "False" },
+    { "q": "The Titanic sank in 1912.", "a": "True" },{ "q": "The Beatles recorded 15 studio albums.", "a": "False" },{ "q": "Shakespeare wrote 13 suicides into his plays.", "a": "True" },{ "q": "Light travels faster than sound.", "a": "True" }]
+    
+    function render(score,index){
+    //Display Score
+    
+    var scoreText = document.getElementById("score");
+    scoreText.textContent = "Score: " + score + " out of " + questions.length + " correct";
+
+    //Display Question
+    
+    var currentIndexPlusOne = index + 1;
+    var questionText = document.getElementById("question-text");
+    questionText.textContent = "Question "+ currentIndexPlusOne + ": " + questions[index].q;
+    }
+    
+    //render first question and current score
+    var currentScore = 0;
+    var currentIndex = 0;
+    render(currentScore,currentIndex);
+    
+    //take in answer
+    document.onkeyup = function(event) {
+        var guess = event.key;
+
+        //check answer
+        if ( (guess === "t" && questions[currentIndex].a === "True") || (guess === "f" && questions[currentIndex].a === "False") ){
+            //if correct add 1 to score
+            currentScore ++;
+        }
+        //add 1 to index
+        currentIndex ++;
+
+
+        if (currentIndex < questions.length){
+        render(currentScore,currentIndex);
+        } else{
+            var finalScore = currentScore / questions.length *100 ;
+            alert("You have answered all the questions in my database. Refresh the page if you want to play again! \n\nYour final score is " + finalScore + "%!");
+        }
+    }
+    </script>
+</body>
+</html>

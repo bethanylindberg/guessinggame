@@ -1,0 +1,35 @@
+body,h1 {
+    font-family: "Raleway", sans-serif
+
+}
+body, html {
+height: 100%;
+color:#333; 
+}
+
+.w3-display-middle{
+    background-color: white;opacity: .85;
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    vertical-align: top;   
+}
+
+.w3-center {
+    margin:10px 5px;
+}
+.w3-display-topleft{
+    background-color: azure;opacity: .8;
+    border-radius: 15px;
+    padding: 0px!important;
+}
+.bgimg {
+  background-image: url('../images/361851.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+#secretword {
+    font-size: 45px!important;
+}
